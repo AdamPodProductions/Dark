@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Range(1, 10)]
     public float mouseSensitivity = 3f;
+
+    public GameObject isSprintingImage;
+    public Image staminaBar;
 
     private float speedMultiplier;
     private bool sprinting;
@@ -62,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             sprinting = !sprinting;
+            isSprintingImage.SetActive(sprinting);
         }
 
         if (sprinting)
@@ -78,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
             sprinting = false;
             ReplenishStamina();
         }
+
+        staminaBar.fillAmount = Stamina / 4f;
     }
 
     private void MouseLook()
