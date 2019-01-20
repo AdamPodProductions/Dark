@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+
+    [Range(1, 10)]
     public float mouseSensitivity = 3f;
 
     private Rigidbody rb;
