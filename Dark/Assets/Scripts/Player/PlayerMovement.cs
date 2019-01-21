@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Range(1, 10)]
     public float mouseSensitivity = 3f;
-    
+
     private bool canMove = true;
     public bool CanMove { get { return canMove; } set { canMove = value; } }
 
@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         speedMultiplier = moveSpeed;
 
         camera = Camera.main.transform;
+
+        FindObjectOfType<RadarDisplay>().AddBlip(transform);
     }
 
     private void Update()
