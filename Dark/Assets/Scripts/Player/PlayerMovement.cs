@@ -33,13 +33,9 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CheckSprint();
+        Movement();
 
         MouseLook();
-    }
-
-    private void FixedUpdate()
-    {
-        Movement();
     }
 
     private void ReplenishStamina()
