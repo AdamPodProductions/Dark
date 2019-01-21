@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Range(1, 10)]
     public float mouseSensitivity = 3f;
+    
+    private bool canMove = true;
+    public bool CanMove { get { return canMove; } set { canMove = value; } }
 
     public GameObject isSprintingImage;
     public Image staminaBar;
@@ -32,10 +35,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        CheckSprint();
-        Movement();
+        if (CanMove)
+        {
+            CheckSprint();
+            Movement();
 
-        MouseLook();
+            MouseLook();
+        }
     }
 
     private void ReplenishStamina()
