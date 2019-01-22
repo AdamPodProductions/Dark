@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject radarDisplay;
+    private RadarDisplay radarDisplay;
 
     private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        
-        radarDisplay = FindObjectOfType<RadarDisplay>().gameObject;
-        radarDisplay.SetActive(false);
+
+        radarDisplay = FindObjectOfType<RadarDisplay>();
+        radarDisplay.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            radarDisplay.SetActive(!radarDisplay.activeInHierarchy);
+            radarDisplay.gameObject.SetActive(!radarDisplay.gameObject.activeInHierarchy);
+            radarDisplay.LocationMarker.SetActive(true);
         }
     }
 }

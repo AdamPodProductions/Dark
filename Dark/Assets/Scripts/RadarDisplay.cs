@@ -10,9 +10,20 @@ public class RadarDisplay : MonoBehaviour
 
     private Dictionary<Transform, Transform> blipsOnDisplay = new Dictionary<Transform, Transform>();
 
+    private Transform player;
+    [SerializeField]
+    private Transform locationMarker;
+    public GameObject LocationMarker { get { return locationMarker.gameObject; } }
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     private void Update()
     {
         ManageBlips();
+        SetTrackLocation();
     }
 
     private void SetBlipLocation(KeyValuePair<Transform, Transform> blip)
@@ -26,6 +37,11 @@ public class RadarDisplay : MonoBehaviour
         {
             SetBlipLocation(blip);
         }
+    }
+
+    private void SetTrackLocation()
+    {
+        locationMarker.transform.position = player.position;
     }
 
     public void AddBlip(Transform newBlipTransform)
