@@ -10,9 +10,11 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+
+        FindObjectOfType<RadarDisplay>().AddBlip(transform);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("LocationMarker"))
         {
