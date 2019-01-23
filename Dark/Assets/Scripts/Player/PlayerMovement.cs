@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
         camera = Camera.main.transform;
 
-        FindObjectOfType<RadarDisplay>().AddBlip(transform);
+        FindObjectOfType<RadarDisplay>().AddBlip(transform, Color.green);
     }
 
     private void Update()

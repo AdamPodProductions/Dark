@@ -8,7 +8,7 @@ public class RadarDisplay : MonoBehaviour
     public GameObject blipPrefab;
     public Vector2 mapLimits;
 
-    private Dictionary<Transform, Transform> blipsOnDisplay = new Dictionary<Transform, Transform>();
+    private Dictionary<Transform, Image> blipsOnDisplay = new Dictionary<Transform, Image>();
 
     private Transform player;
     [SerializeField]
@@ -26,14 +26,14 @@ public class RadarDisplay : MonoBehaviour
         SetTrackLocation();
     }
 
-    private void SetBlipLocation(KeyValuePair<Transform, Transform> blip)
+    private void SetBlipLocation(KeyValuePair<Transform, Image> blip)
     {
-        blip.Value.localPosition = new Vector2(blip.Key.position.x / mapLimits.x, blip.Key.position.z / mapLimits.y) * 350f;
+        blip.Value.transform.localPosition = new Vector2(blip.Key.position.x / mapLimits.x, blip.Key.position.z / mapLimits.y) * 350f;
     }
 
     private void ManageBlips()
     {
-        foreach (KeyValuePair<Transform, Transform> blip in blipsOnDisplay)
+        foreach (KeyValuePair<Transform, Image> blip in blipsOnDisplay)
         {
             SetBlipLocation(blip);
         }
@@ -46,7 +46,14 @@ public class RadarDisplay : MonoBehaviour
 
     public void AddBlip(Transform newBlipTransform)
     {
-        Transform newBlipDisplay = Instantiate(blipPrefab, transform).transform;
+        Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
+        blipsOnDisplay.Add(newBlipTransform, newBlipDisplay);
+    }
+
+    public void AddBlip(Transform newBlipTransform, Color color)
+    {
+        Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
+        newBlipDisplay.color = color;
         blipsOnDisplay.Add(newBlipTransform, newBlipDisplay);
     }
 }

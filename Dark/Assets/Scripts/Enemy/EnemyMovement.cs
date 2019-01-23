@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
 
-        FindObjectOfType<RadarDisplay>().AddBlip(transform);
+        FindObjectOfType<RadarDisplay>().AddBlip(transform, Color.red);
     }
 
     private void OnTriggerStay(Collider other)
