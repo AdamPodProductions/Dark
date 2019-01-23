@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
     private RadarDisplay radarDisplay;
 
     private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
-        radarDisplay = FindObjectOfType<RadarDisplay>();
     }
 
     private void Update()

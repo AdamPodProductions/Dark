@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject isSprintingImage;
     public Image staminaBar;
 
+    [SerializeField]
+    private RadarDisplay radarDisplay;
+
     private float speedMultiplier;
     private bool sprinting;
     private Vector3 movement;
@@ -32,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         camera = Camera.main.transform;
 
-        FindObjectOfType<RadarDisplay>().AddBlip(transform, Color.green);
+        radarDisplay.AddBlip(transform, Color.green);
     }
 
     private void Update()

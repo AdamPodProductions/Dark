@@ -161,6 +161,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5737b04e2b8230649bed655db9d625a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radarDisplay: {fileID: 204791420}
+--- !u!114 &204791420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1608486645069755023, guid: 01de5b7312e65b4449147685a4d6cff1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1608486643898536084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558e93bebd0c0944dbd164f7c0c75470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &648275457
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +541,11 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1886529735}
+    - target: {fileID: 114157009333293846, guid: b0ce285bb4ef47441a55c82cbc8d8308,
+        type: 3}
+      propertyPath: radarDisplay
+      value: 
+      objectReference: {fileID: 204791420}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0ce285bb4ef47441a55c82cbc8d8308, type: 3}
 --- !u!1 &1831573645 stripped
@@ -684,6 +702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RadarDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608486645069755011, guid: 01de5b7312e65b4449147685a4d6cff1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1608486645069755020, guid: 01de5b7312e65b4449147685a4d6cff1,
         type: 3}
