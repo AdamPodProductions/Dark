@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         radarDisplay = FindObjectOfType<RadarDisplay>();
-        radarDisplay.gameObject.SetActive(false);
     }
 
     private void Update()
