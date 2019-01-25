@@ -18,6 +18,8 @@ public class RadarDisplay : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        ManageStaticBlips();
     }
 
     private void Update()
@@ -35,7 +37,17 @@ public class RadarDisplay : MonoBehaviour
     {
         foreach (KeyValuePair<Transform, Image> blip in blipsOnDisplay)
         {
-            SetBlipLocation(blip);
+            if (!blip.Key.gameObject.isStatic)
+                SetBlipLocation(blip);
+        }
+    }
+
+    private void ManageStaticBlips()
+    {
+        foreach (KeyValuePair<Transform, Image> blip in blipsOnDisplay)
+        {
+            if (blip.Key.gameObject.isStatic)
+                SetBlipLocation(blip);
         }
     }
 
