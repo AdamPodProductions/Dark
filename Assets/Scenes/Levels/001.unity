@@ -928,6 +928,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gas
       objectReference: {fileID: 0}
+    - target: {fileID: 1803075302849925046, guid: 12f5c901ace4595468fa7b03accc13fe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 1803075302849925042, guid: 12f5c901ace4595468fa7b03accc13fe,
         type: 3}
       propertyPath: m_LocalPosition.x
