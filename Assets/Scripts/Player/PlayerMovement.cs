@@ -97,6 +97,6 @@ public class PlayerMovement : MonoBehaviour
     private void MouseLook()
     {
         transform.eulerAngles += Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity;
-        camera.eulerAngles += new Vector3(-Input.GetAxisRaw("Mouse Y"), Input.GetAxisRaw("Mouse X")) * mouseSensitivity;
+        camera.eulerAngles += new Vector3(-Input.GetAxisRaw("Mouse Y"), 0) * mouseSensitivity;
     }
 }
