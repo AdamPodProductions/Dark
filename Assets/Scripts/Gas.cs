@@ -15,7 +15,7 @@ public class Gas : MonoBehaviour
         yield return new WaitForSeconds(10);
         gasTimer.SetActive(false);
 
-        FindObjectOfType<SceneChanger>().ChangeScene("GameOver");
+        FindObjectOfType<SceneChanger>().ChangeScene("GameOver", false);
     }
 
     public void ActivateGas()

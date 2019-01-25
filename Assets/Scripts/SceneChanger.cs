@@ -18,4 +18,25 @@ public class SceneChanger : MonoBehaviour
         loading.SetActive(true);
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ChangeScene(int sceneIndex, bool showLoadingScreen)
+    {
+        if (showLoadingScreen)
+            loading.SetActive(true);
+
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void ChangeScene(string sceneName, bool showLoadingScreen)
+    {
+        if (showLoadingScreen)
+            loading.SetActive(true);
+
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
