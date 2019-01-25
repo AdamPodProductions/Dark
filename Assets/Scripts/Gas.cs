@@ -15,7 +15,7 @@ public class Gas : MonoBehaviour
         yield return new WaitForSeconds(10);
         gasTimer.SetActive(false);
 
-        print("Death");
+        FindObjectOfType<SceneChanger>().ChangeScene("GameOver");
     }
 
     public void ActivateGas()
@@ -25,8 +25,6 @@ public class Gas : MonoBehaviour
             isActivated = true;
             gasTimer.SetActive(true);
             StartCoroutine(GasTimer());
-
-            print("Activate gas");
         }
     }
 }
