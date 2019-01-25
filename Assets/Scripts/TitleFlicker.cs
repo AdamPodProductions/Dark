@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DarkTitle : MonoBehaviour
+public class TitleFlicker : MonoBehaviour
 {
     private Text text;
 
     private void Start()
     {
-        text = GetComponent<Text>();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
+        text = GetComponent<Text>();
         StartCoroutine(Flicker());
     }
 
