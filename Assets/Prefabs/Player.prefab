@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 136721645588124710}
   - component: {fileID: 54547630789801012}
   - component: {fileID: 114157009333293846}
+  - component: {fileID: 8994402524110220059}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -81,6 +82,20 @@ MonoBehaviour:
   mouseSensitivity: 3
   isSprintingImage: {fileID: 0}
   staminaBar: {fileID: 0}
+  radarDisplay: {fileID: 0}
+--- !u!114 &8994402524110220059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430011653039962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9e29866683a244695d9c799281bc0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayPoint: {fileID: 4330608838174724}
 --- !u!1 &1510814589461602
 GameObject:
   m_ObjectHideFlags: 0
