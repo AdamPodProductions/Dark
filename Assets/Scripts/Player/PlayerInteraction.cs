@@ -21,7 +21,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    print("Activate gas");
+                    FindObjectOfType<Gas>().ActivateGas();
                 }
             }
         }
