@@ -593,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gasTimer: {fileID: 627021248}
+  radarDisplay: {fileID: 204791420}
 --- !u!1 &1435570495
 GameObject:
   m_ObjectHideFlags: 0
