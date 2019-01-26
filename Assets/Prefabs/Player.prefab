@@ -78,11 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396db5aa5202aa9489417550e8c74d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  stamina: 4
+  moveSpeed: 7
   mouseSensitivity: 3
-  isSprintingImage: {fileID: 0}
-  staminaBar: {fileID: 0}
   radarDisplay: {fileID: 0}
   footstepSounds:
   - {fileID: 8300000, guid: 320346fd49e88034da168d12a72d5d1b, type: 3}
