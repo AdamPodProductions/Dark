@@ -6,6 +6,13 @@ public class PlayerInteraction : MonoBehaviour
 {
     public Transform rayPoint;
 
+    private TutorialText tutorialText;
+
+    private void Start()
+    {
+        tutorialText = FindObjectOfType<TutorialText>();
+    }
+
     private void Update()
     {
         CheckRaycast();
@@ -19,11 +26,21 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.transform.CompareTag("Gas"))
             {
+                tutorialText.SetText("Click to activate gas");
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     FindObjectOfType<Gas>().ActivateGas();
                 }
             }
+            else
+            {
+                tutorialText.SetText(string.Empty);
+            }
+        }
+        else
+        {
+            tutorialText.SetText(string.Empty);
         }
     }
 }
