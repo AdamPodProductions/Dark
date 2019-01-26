@@ -7,6 +7,7 @@ TagManager:
   - LocationMarker
   - Enemy
   - Gas
+  - Exit
   layers:
   - Default
   - TransparentFX

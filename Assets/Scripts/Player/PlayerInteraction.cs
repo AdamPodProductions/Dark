@@ -7,10 +7,12 @@ public class PlayerInteraction : MonoBehaviour
     public Transform rayPoint;
 
     private TutorialText tutorialText;
+    private Gas gas;
 
     private void Start()
     {
         tutorialText = FindObjectOfType<TutorialText>();
+        gas = FindObjectOfType<Gas>();
     }
 
     private void Update()
@@ -30,7 +32,23 @@ public class PlayerInteraction : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    FindObjectOfType<Gas>().ActivateGas();
+                    gas.ActivateGas();
+                }
+            }
+            else if (hit.transform.CompareTag("Exit"))
+            {
+                if (gas.IsActivated)
+                {
+                    tutorialText.SetText("Click to exit the room");
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        FindObjectOfType<Exit>().ExitRoom();
+                    }
+                }
+                else
+                {
+                    tutorialText.SetText("Activate gas before exiting room");
                 }
             }
             else
