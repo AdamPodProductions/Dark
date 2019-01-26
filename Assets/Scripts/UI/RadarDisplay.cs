@@ -11,6 +11,7 @@ public class RadarDisplay : MonoBehaviour
     private Dictionary<Transform, Image> blipsOnDisplay = new Dictionary<Transform, Image>();
 
     private Transform player;
+
     [SerializeField]
     private Transform locationMarker;
     public GameObject LocationMarker { get { return locationMarker.gameObject; } }

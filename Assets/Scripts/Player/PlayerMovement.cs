@@ -17,18 +17,29 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
     public bool CanMove { get { return canMove; } set { canMove = value; } }
 
+    [Space]
+
     public GameObject isSprintingImage;
     public Image staminaBar;
 
     [SerializeField]
     private RadarDisplay radarDisplay;
 
-    private float speedMultiplier;
-    private bool sprinting;
+    [Space]
+
+    [SerializeField]
+    private AudioClip[] footstepSounds;
+    private AudioSource audioSource;
+    private float footstepTimer = 0f;
+
+    private float speedMultiplier = 1f;
+    private bool sprinting = false;
     private Vector3 movement;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         speedMultiplier = moveSpeed;
 
         radarDisplay.AddBlip(transform, Color.green);
@@ -42,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
             Movement();
 
             MouseLook();
+
+            CheckFootstep();
         }
     }
 
@@ -93,5 +106,25 @@ public class PlayerMovement : MonoBehaviour
     private void MouseLook()
     {
         transform.eulerAngles += Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity;
+    }
+
+    private void PlayFootstepSound()
+    {
+        int index = Random.Range(0, footstepSounds.Length);
+        audioSource.PlayOneShot(footstepSounds[index]);
+    }
+
+    private void CheckFootstep()
+    {
+        if (!movement.Equals(Vector3.zero))
+        {
+            footstepTimer -= Time.deltaTime * speedMultiplier;
+
+            if (footstepTimer < 0)
+            {
+                PlayFootstepSound();
+                footstepTimer = 0.5f;
+            }
+        }
     }
 }
