@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Gas
   - Exit
+  - Wall
   layers:
   - Default
   - TransparentFX

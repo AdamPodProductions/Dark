@@ -23,6 +23,8 @@ public class RadarDisplay : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        AddWalls();
     }
 
     private void Update()
@@ -52,6 +54,21 @@ public class RadarDisplay : MonoBehaviour
     }
 
     #region Add blips
+    private void AddWalls()
+    {
+        foreach (GameObject wall in GameObject.FindGameObjectsWithTag("Wall"))
+        {
+            AddWall(wall.transform);
+        }
+    }
+
+    private void AddWall(Transform newWall)
+    {
+        Transform newWallDisplay = Instantiate(wallBlipPrefab, transform).transform;
+        newWallDisplay.localPosition = new Vector2(newWall.position.x / mapLimits.x, newWall.position.z / mapLimits.y) * 350f;
+        newWallDisplay.localScale = new Vector2(newWall.localScale.x / mapLimits.x, newWall.localScale.z / mapLimits.y) * 350f;
+    }
+
     public void AddBlip(Transform newBlipTransform)
     {
         Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
@@ -76,13 +93,6 @@ public class RadarDisplay : MonoBehaviour
         Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
         newBlipDisplay.color = color;
         newBlipDisplay.transform.localPosition = new Vector2(newBlipPosition.x / mapLimits.x, newBlipPosition.z / mapLimits.y) * 350f;
-    }
-
-    public void AddWall(Transform newWall)
-    {
-        Transform newBlipDisplay = Instantiate(wallBlipPrefab, transform).transform;
-        newBlipDisplay.localPosition = new Vector2(newWall.position.x / mapLimits.x, newWall.position.z / mapLimits.y) * 350f;
-        newBlipDisplay.localScale = new Vector2(newWall.localScale.x / mapLimits.x, newWall.localScale.z / mapLimits.y) * 350f;
     }
     #endregion
 }
