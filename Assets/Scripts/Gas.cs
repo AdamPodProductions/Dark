@@ -10,12 +10,9 @@ public class Gas : MonoBehaviour
     [SerializeField]
     private GameObject gasTimer;
 
-    [SerializeField]
-    private RadarDisplay radarDisplay;
-
     private void Start()
     {
-        radarDisplay.AddStaticBlip(transform.position, Color.red);
+        GameManager.instance.RadarDisplay.AddStaticBlip(transform.position, Color.red);
     }
 
     private IEnumerator GasTimer()

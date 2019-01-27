@@ -5,16 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
-    private RadarDisplay radarDisplay;
-
     private NavMeshAgent navMeshAgent;
 
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
 
-        radarDisplay.AddBlip(transform);
+        GameManager.instance.RadarDisplay.AddBlip(transform);
     }
 
     private void OnTriggerStay(Collider other)

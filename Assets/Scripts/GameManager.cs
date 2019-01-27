@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [SerializeField]
     private RadarDisplay radarDisplay;
+    public RadarDisplay RadarDisplay { get { return radarDisplay; } }
+
+    private void OnEnable()
+    {
+        instance = this;
+    }
 
     private void Start()
     {

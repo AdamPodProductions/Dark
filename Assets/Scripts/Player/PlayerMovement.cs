@@ -13,9 +13,6 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
     public bool CanMove { get { return canMove; } set { canMove = value; } }
 
-    [SerializeField]
-    private RadarDisplay radarDisplay;
-
     [Space]
 
     [SerializeField]
@@ -29,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        radarDisplay.AddBlip(transform, Color.green);
+        GameManager.instance.RadarDisplay.AddBlip(transform, Color.green);
     }
 
     private void Update()

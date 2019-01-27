@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    [SerializeField]
-    private RadarDisplay radarDisplay;
-
     private void Start()
     {
-        radarDisplay.AddWall(transform);
+        GameManager.instance.RadarDisplay.AddWall(transform);
     }
 }

@@ -6,15 +6,12 @@ public class Exit : MonoBehaviour
 {
     public string nextLevel;
 
-    [SerializeField]
-    private RadarDisplay radarDisplay;
-
     private Gas gas;
     private SceneChanger sceneChanger;
 
     private void Start()
     {
-        radarDisplay.AddStaticBlip(transform.position, Color.blue);
+        GameManager.instance.RadarDisplay.AddStaticBlip(transform.position, Color.blue);
 
         gas = FindObjectOfType<Gas>();
         sceneChanger = FindObjectOfType<SceneChanger>();
