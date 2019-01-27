@@ -27,6 +27,7 @@ public class RadarDisplay : MonoBehaviour
         SetTrackLocation();
     }
 
+    #region Manage blips
     private void SetBlipLocation(KeyValuePair<Transform, Image> blip)
     {
         blip.Value.transform.localPosition = new Vector2(blip.Key.position.x / mapLimits.x, blip.Key.position.z / mapLimits.y) * 350f;
@@ -39,12 +40,14 @@ public class RadarDisplay : MonoBehaviour
             SetBlipLocation(blip);
         }
     }
+    #endregion
 
     private void SetTrackLocation()
     {
         locationMarker.transform.position = player.position;
     }
 
+    #region Add blips
     public void AddBlip(Transform newBlipTransform)
     {
         Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
@@ -70,4 +73,5 @@ public class RadarDisplay : MonoBehaviour
         newBlipDisplay.color = color;
         newBlipDisplay.transform.localPosition = new Vector2(newBlipPosition.x / mapLimits.x, newBlipPosition.z / mapLimits.y) * 350f;
     }
+    #endregion
 }
