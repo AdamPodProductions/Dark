@@ -15,7 +15,7 @@ public class Gas : MonoBehaviour
 
     private void Start()
     {
-        radarDisplay.AddBlip(transform, Color.red);
+        radarDisplay.AddStaticBlip(transform.position, Color.red);
     }
 
     private IEnumerator GasTimer()

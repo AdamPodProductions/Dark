@@ -14,7 +14,7 @@ public class Exit : MonoBehaviour
 
     private void Start()
     {
-        radarDisplay.AddBlip(transform, Color.blue);
+        radarDisplay.AddStaticBlip(transform.position, Color.blue);
 
         gas = FindObjectOfType<Gas>();
         sceneChanger = FindObjectOfType<SceneChanger>();

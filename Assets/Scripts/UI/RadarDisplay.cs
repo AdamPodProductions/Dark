@@ -19,8 +19,6 @@ public class RadarDisplay : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        ManageStaticBlips();
     }
 
     private void Update()
@@ -38,17 +36,7 @@ public class RadarDisplay : MonoBehaviour
     {
         foreach (KeyValuePair<Transform, Image> blip in blipsOnDisplay)
         {
-            if (!blip.Key.gameObject.isStatic)
-                SetBlipLocation(blip);
-        }
-    }
-
-    private void ManageStaticBlips()
-    {
-        foreach (KeyValuePair<Transform, Image> blip in blipsOnDisplay)
-        {
-            if (blip.Key.gameObject.isStatic)
-                SetBlipLocation(blip);
+            SetBlipLocation(blip);
         }
     }
 
@@ -68,5 +56,18 @@ public class RadarDisplay : MonoBehaviour
         Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
         newBlipDisplay.color = color;
         blipsOnDisplay.Add(newBlipTransform, newBlipDisplay);
+    }
+
+    public void AddStaticBlip(Vector3 newBlipPosition)
+    {
+        Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
+        newBlipDisplay.transform.localPosition = new Vector2(newBlipPosition.x / mapLimits.x, newBlipPosition.z / mapLimits.y) * 350f;
+    }
+
+    public void AddStaticBlip(Vector3 newBlipPosition, Color color)
+    {
+        Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
+        newBlipDisplay.color = color;
+        newBlipDisplay.transform.localPosition = new Vector2(newBlipPosition.x / mapLimits.x, newBlipPosition.z / mapLimits.y) * 350f;
     }
 }
