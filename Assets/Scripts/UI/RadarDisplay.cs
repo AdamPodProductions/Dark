@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class RadarDisplay : MonoBehaviour
 {
-    public GameObject blipPrefab;
+    [SerializeField]
+    private GameObject blipPrefab;
+    [SerializeField]
+    private GameObject wallBlipPrefab;
+
     public Vector2 mapLimits;
 
     private Dictionary<Transform, Image> blipsOnDisplay = new Dictionary<Transform, Image>();
@@ -72,6 +76,13 @@ public class RadarDisplay : MonoBehaviour
         Image newBlipDisplay = Instantiate(blipPrefab, transform).GetComponent<Image>();
         newBlipDisplay.color = color;
         newBlipDisplay.transform.localPosition = new Vector2(newBlipPosition.x / mapLimits.x, newBlipPosition.z / mapLimits.y) * 350f;
+    }
+
+    public void AddWall(Transform newWall)
+    {
+        Transform newBlipDisplay = Instantiate(wallBlipPrefab, transform).transform;
+        newBlipDisplay.localPosition = new Vector2(newWall.position.x / mapLimits.x, newWall.position.z / mapLimits.y) * 350f;
+        newBlipDisplay.localScale = new Vector2(newWall.localScale.x / mapLimits.x, newWall.localScale.z / mapLimits.y) * 350f;
     }
     #endregion
 }
